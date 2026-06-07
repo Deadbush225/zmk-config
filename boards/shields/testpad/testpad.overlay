@@ -6,11 +6,39 @@
     };
 
     kscan0: kscan_0 {
-        compatible = "zmk,kscan-gpio-direct";
-        
-        /* The switch is wired between Pin 0.06 and Ground.
-           We use PULL_UP so the pin reads HIGH normally, 
-           and goes LOW when the switch is pressed. */
-        input-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row"; 
+
+        // 5 Rows (Top 5 pins on the Right Side, descending)
+        row-gpios
+            = <&gpio0 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 1
+            , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 2
+            , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 3
+            , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 4
+            , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 5
+            ;
+
+        // 16 Columns (Wrapping around the board sequentially)
+        col-gpios
+            // Left Side (Top to Bottom)
+            = <&gpio0 6  GPIO_ACTIVE_HIGH> // Col 1
+            , <&gpio0 8  GPIO_ACTIVE_HIGH> // Col 2
+            , <&gpio0 17 GPIO_ACTIVE_HIGH> // Col 3
+            , <&gpio0 20 GPIO_ACTIVE_HIGH> // Col 4
+            , <&gpio0 22 GPIO_ACTIVE_HIGH> // Col 5
+            , <&gpio0 24 GPIO_ACTIVE_HIGH> // Col 6
+            , <&gpio1 0  GPIO_ACTIVE_HIGH> // Col 7
+            , <&gpio0 11 GPIO_ACTIVE_HIGH> // Col 8
+            , <&gpio1 4  GPIO_ACTIVE_HIGH> // Col 9
+            , <&gpio1 6  GPIO_ACTIVE_HIGH> // Col 10
+            // Top Edge (Left to Right)
+            , <&gpio0 1  GPIO_ACTIVE_HIGH> // Col 11
+            , <&gpio0 0  GPIO_ACTIVE_HIGH> // Col 12
+            , <&gpio0 15 GPIO_ACTIVE_HIGH> // Col 13
+            // Right Side Bottom (Ascending to meet the rows)
+            , <&gpio0 31 GPIO_ACTIVE_HIGH> // Col 14
+            , <&gpio0 29 GPIO_ACTIVE_HIGH> // Col 15
+            , <&gpio0 2  GPIO_ACTIVE_HIGH> // Col 16
+            ;
     };
 };
