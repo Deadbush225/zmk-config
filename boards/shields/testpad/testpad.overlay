@@ -9,7 +9,7 @@
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "row2col"; 
 
-        // ROWS (Clean outputs)
+        // ROWS (Pushing power - no anchors)
         row-gpios
             = <&gpio0 9  GPIO_ACTIVE_HIGH>
             , <&gpio0 10 GPIO_ACTIVE_HIGH>
@@ -18,24 +18,24 @@
             , <&gpio1 15 GPIO_ACTIVE_HIGH>
             ;
 
-        // COLUMNS (Clean inputs - ZMK handles the anchors automatically)
+        // COLUMNS (Listening - MUST have PULL_DOWN anchors to stop the spam)
         col-gpios
-            = <&gpio0 6  GPIO_ACTIVE_HIGH>
-            , <&gpio0 8  GPIO_ACTIVE_HIGH>
-            , <&gpio0 17 GPIO_ACTIVE_HIGH>
-            , <&gpio0 20 GPIO_ACTIVE_HIGH>
-            , <&gpio0 22 GPIO_ACTIVE_HIGH>
-            , <&gpio0 24 GPIO_ACTIVE_HIGH>
-            , <&gpio1 0  GPIO_ACTIVE_HIGH>
-            , <&gpio0 11 GPIO_ACTIVE_HIGH>
-            , <&gpio1 4  GPIO_ACTIVE_HIGH>
-            , <&gpio1 6  GPIO_ACTIVE_HIGH>
-            , <&gpio0 1  GPIO_ACTIVE_HIGH>
-            , <&gpio0 0  GPIO_ACTIVE_HIGH>
-            , <&gpio0 15 GPIO_ACTIVE_HIGH>
-            , <&gpio0 31 GPIO_ACTIVE_HIGH>
-            , <&gpio0 29 GPIO_ACTIVE_HIGH>
-            , <&gpio0 2  GPIO_ACTIVE_HIGH>
+            = <&gpio0 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 1  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
     };
 };
