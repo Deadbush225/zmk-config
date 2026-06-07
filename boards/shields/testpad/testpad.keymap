@@ -1,5 +1,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 
 / {
     keymap {
@@ -17,15 +18,15 @@
             >;
         };
 
-        // LAYER 1: Activated by holding 'Fn' (Col 2, Row 5)
+        // LAYER 1: Activated by holding 'Fn'
         fn_layer {
             bindings = <
-            // Col 1      Col 2       Col 3       Col 4       Col 5     Col 6     Col 7       Col 8     Col 9     Col 10    Col 11    Col 12    Col 13    Col 14    Col 15    Col 16
-            &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &trans    &trans    &trans      &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    // Row 1 (Added Bluetooth controls)
-            &trans      &trans      &trans      &trans      &trans    &trans    &trans      &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    // Row 2
-            &trans      &trans      &trans      &trans      &trans    &trans    &trans      &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    // Row 3
-            &trans      &trans      &trans      &trans      &trans    &trans    &trans      &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    // Row 4
-            &trans      &trans      &trans      &trans      &trans    &trans    &trans      &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    // Row 5
+            // Col 1      Col 2       Col 3       Col 4       Col 5       Col 6       Col 7       Col 8       Col 9       Col 10      Col 11    Col 12    Col 13    Col 14    Col 15    Col 16
+            &trans      &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10   &trans    &trans    &trans    &trans    &trans    // Row 1: Restored F1-F10
+            &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &trans      &trans      &trans      &trans      &trans      &trans      &trans    &trans    &trans    &trans    &trans    &trans    // Row 2: Bluetooth Controls
+            &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans    &trans    &trans    &trans    &trans    &trans    // Row 3
+            &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans    &trans    &trans    &trans    &trans    &trans    // Row 4
+            &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans    &trans    &trans    &trans    &trans    &trans    // Row 5
             >;
         };
     };
