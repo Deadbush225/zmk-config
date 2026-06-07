@@ -7,14 +7,13 @@
 
         default_layer {
             // 5 Rows x 16 Columns = 80 Keys exactly.
-            // If your physical board lacks a switch at a specific intersection, that keycode will simply never be triggered.
             bindings = <
             // Col 1     Col 2     Col 3     Col 4     Col 5     Col 6     Col 7     Col 8     Col 9     Col 10    Col 11    Col 12    Col 13    Col 14    Col 15    Col 16
-            &kp ESC   &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12   &kp PSCRN &kp SLCK  &kp PAUSE // Row 1
-            &kp GRAVE &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS &kp EQUAL &kp BSPC  &kp INS   &kp HOME  // Row 2
-            &kp TAB   &kp Q     &kp W     &kp E     &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P     &kp LBKT  &kp RBKT  &kp BSLH  &kp DEL   &kp END   // Row 3
-            &kp CLCK  &kp A     &kp S     &kp D     &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT   &kp RET   &kp PG_UP &kp UP    &kp PG_DN // Row 4
-            &kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT &kp LCTRL &kp LEFT  &kp DOWN  &kp RIGHT // Row 5
+            &kp ESC   &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12   &kp PSCRN &kp SLCK  &kp PAUSE_BREAK // Row 1
+            &kp GRAVE &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS &kp EQUAL &kp BSPC  &kp INS   &kp HOME        // Row 2
+            &kp TAB   &kp Q     &kp W     &kp E     &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P     &kp LBKT  &kp RBKT  &kp BSLH  &kp DEL   &kp END         // Row 3
+            &kp CAPS  &kp A     &kp S     &kp D     &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT   &kp RET   &kp PG_UP &kp UP    &kp PG_DN       // Row 4
+            &kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT &kp LCTRL &kp LEFT  &kp DOWN  &kp RIGHT       // Row 5
             >;
         };
     };
