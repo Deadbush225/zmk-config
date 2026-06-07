@@ -9,14 +9,16 @@
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "row2col"; 
 
+        // 5 ROWS (Pushing power out)
         row-gpios
-            = <&gpio0 9  GPIO_ACTIVE_HIGH> 
-            , <&gpio0 10 GPIO_ACTIVE_HIGH> 
-            , <&gpio1 11 GPIO_ACTIVE_HIGH> 
-            , <&gpio1 13 GPIO_ACTIVE_HIGH> 
-            , <&gpio1 15 GPIO_ACTIVE_HIGH> 
+            = <&gpio0 9  GPIO_ACTIVE_HIGH> // Row 1
+            , <&gpio0 10 GPIO_ACTIVE_HIGH> // Row 2
+            , <&gpio1 11 GPIO_ACTIVE_HIGH> // Row 3
+            , <&gpio1 13 GPIO_ACTIVE_HIGH> // Row 4
+            , <&gpio1 15 GPIO_ACTIVE_HIGH> // Row 5
             ;
 
+        // 16 COLUMNS (Listening with PULL_DOWN anchors)
         col-gpios
             = <&gpio0 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 1
             , <&gpio0 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 2
@@ -31,9 +33,10 @@
             , <&gpio1 1  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 11
             , <&gpio1 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 12
             , <&gpio1 7  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 13
-            , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 14 (Fixed)
-            , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 15
-            , <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 16
+            // --- THE SWAPPED PINS ---
+            , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 14 (Now on 31)
+            , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 15 (Stays in the middle)
+            , <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 16 (Now on 2)
             ;
     };
 };
