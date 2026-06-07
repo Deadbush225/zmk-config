@@ -7,7 +7,7 @@
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row"; 
+        diode-direction = "row2col"; 
 
         // 5 Rows (Top 5 pins on the Right Side, descending)
         row-gpios
