@@ -9,36 +9,33 @@
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "row2col"; 
 
-        // 5 Rows (Top 5 pins on the Right Side, descending)
+        // ROWS: Remove PULL_DOWN (they are just sending power now)
         row-gpios
-            = <&gpio0 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 1
-            , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 2
-            , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 3
-            , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 4
-            , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 5
+            = <&gpio0 9  GPIO_ACTIVE_HIGH>
+            , <&gpio0 10 GPIO_ACTIVE_HIGH>
+            , <&gpio1 11 GPIO_ACTIVE_HIGH>
+            , <&gpio1 13 GPIO_ACTIVE_HIGH>
+            , <&gpio1 15 GPIO_ACTIVE_HIGH>
             ;
 
-        // 16 Columns (Wrapping around the board sequentially)
+        // COLUMNS: Add PULL_DOWN to anchor them against static noise
         col-gpios
-            // Left Side (Top to Bottom)
-            = <&gpio0 6  GPIO_ACTIVE_HIGH> // Col 1
-            , <&gpio0 8  GPIO_ACTIVE_HIGH> // Col 2
-            , <&gpio0 17 GPIO_ACTIVE_HIGH> // Col 3
-            , <&gpio0 20 GPIO_ACTIVE_HIGH> // Col 4
-            , <&gpio0 22 GPIO_ACTIVE_HIGH> // Col 5
-            , <&gpio0 24 GPIO_ACTIVE_HIGH> // Col 6
-            , <&gpio1 0  GPIO_ACTIVE_HIGH> // Col 7
-            , <&gpio0 11 GPIO_ACTIVE_HIGH> // Col 8
-            , <&gpio1 4  GPIO_ACTIVE_HIGH> // Col 9
-            , <&gpio1 6  GPIO_ACTIVE_HIGH> // Col 10
-            // Top Edge (Left to Right)
-            , <&gpio0 1  GPIO_ACTIVE_HIGH> // Col 11
-            , <&gpio0 0  GPIO_ACTIVE_HIGH> // Col 12
-            , <&gpio0 15 GPIO_ACTIVE_HIGH> // Col 13
-            // Right Side Bottom (Ascending to meet the rows)
-            , <&gpio0 31 GPIO_ACTIVE_HIGH> // Col 14
-            , <&gpio0 29 GPIO_ACTIVE_HIGH> // Col 15
-            , <&gpio0 2  GPIO_ACTIVE_HIGH> // Col 16
+            = <&gpio0 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 1  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
     };
 };
