@@ -18,9 +18,8 @@
             , <&gpio1 15 GPIO_ACTIVE_HIGH> // Row 5
             ;
 
-        // 16 COLUMNS (Listening with PULL_DOWN anchors to block static)
+        // 16 COLUMNS (Listening with PULL_DOWN anchors)
         col-gpios
-            // Left Side
             = <&gpio0 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 1
             , <&gpio0 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 2
             , <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 3
@@ -31,14 +30,13 @@
             , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 8
             , <&gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 9
             , <&gpio1 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 10
-            // Bottom Edge
             , <&gpio1 1  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 11
             , <&gpio1 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 12
             , <&gpio1 7  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 13
-            // Right Side
-            , <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 14
-            , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 15
-            , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 16
+            // --- THE SWAPPED PINS ---
+            , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 14 (Now on 31)
+            , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 15 (Stays in the middle)
+            , <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 16 (Now on 2)
             ;
     };
 };
