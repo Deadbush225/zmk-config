@@ -9,14 +9,14 @@
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "row2col"; 
 
-        // Just ONE Row (Top Right Pin)
+        // ONLY Row 3 (Pushing power)
         row-gpios
-            = <&gpio0 9 GPIO_ACTIVE_HIGH> 
+            = <&gpio1 11 GPIO_ACTIVE_HIGH> 
             ;
 
-        // Just ONE Column (Bottom Right Pin)
+        // ONLY Column 2 (Listening with PULL_DOWN anchor)
         col-gpios
-            = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> 
+            = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> 
             ;
     };
 };
