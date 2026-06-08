@@ -19,24 +19,24 @@
             ;
 
         // 16 COLUMNS (Listening with PULL_DOWN anchors)
+        // Now physically untangled to match left-to-right sweeps
         col-gpios
-            = <&gpio0 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 1
-            , <&gpio0 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 2
-            , <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 3
-            , <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 4
-            , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 5
-            , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 6
-            , <&gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 7  (B, G)
-            , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 8
-            , <&gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 9
-            , <&gpio1 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 10
-            , <&gpio1 1  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 11
-            , <&gpio1 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 12 (;, /)
-            , <&gpio1 7  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 13
-            // --- THE CORRECTED PINS ---
-            , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 14
-            , <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 15 (Was 29)
-            , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 16 (Was 2)
+            = <&gpio0 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 1  (Esc, Tab, Caps, LShift)
+            , <&gpio0 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 2  (1, Q, A, Z)
+            , <&gpio1 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 3  (2, W, S, X)
+            , <&gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 4  (3, E, D, C)
+            , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 5  (4, R, F, V)
+            , <&gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 6  (5, T, G, B)
+            , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 7  (6, Y, H, N)
+            , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 8  (7, U, J, M)
+            , <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 9  (8, I, K, COMMA)
+            , <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 10 (9, O, L, DOT)
+            , <&gpio1 7  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 11 (0, P, SEMI)
+            , <&gpio1 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 12 (-, LBKT, SQT, FSLH)
+            , <&gpio1 1  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 13 (=, RBKT, RET)
+            , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 14 (BSPC, BSLH, LEFT)
+            , <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 15 (INS, DEL, RIGHT)
+            , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Col 16 (UP, DOWN)
             ;
     };
 };
