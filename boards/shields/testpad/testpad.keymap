@@ -22,18 +22,13 @@
             label = "MOUSE_LAYER_TAP";
             #binding-cells = <2>;
             
-            // 1. Prioritize typing. If you release before 250ms, it is ALWAYS a 'W'.
-            flavor = "tap-preferred";
-            tapping-term-ms = <250>; 
+            // "Hold-preferred" means if you hold W, it is ALWAYS the layer.
+            // This is the most consistent and responsive "modifier" behavior.
+            flavor = "hold-preferred"; 
             
-            // 2. Explicitly disable quick-tap repeat. 
-            // This prevents the "www" spam if you tap 'w' and then hold it.
-            quick-tap-ms = <0>;      
-
-            // 3. Modifiers are safe. It will only become the mouse layer if 
-            // no other keys were recently pressed.
-            require-prior-idle-ms = <150>; 
+            tapping-term-ms = <200>;
             
+            // This removes the "smart" gates that were probably blocking your inputs.
             bindings = <&mo>, <&kp>;
         };
     };
