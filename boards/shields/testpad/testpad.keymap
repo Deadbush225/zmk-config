@@ -15,14 +15,13 @@
 #define M_LFT_FST   MOVE_X(-3500)
 #define M_RGT_FST   MOVE_X(3500)
 
-/ {
-    // 4. Override default mouse acceleration to make it instantly responsive.
-    // This is what gives you that precise "20px per tap" snappy feeling.
-    &mmv {
-        time-to-max-speed-ms = <0>; 
-        acceleration-exponent = <0>;
-    };
+// 4. Override default mouse acceleration OUTSIDE the root node
+&mmv {
+    time-to-max-speed-ms = <0>; 
+    acceleration-exponent = <0>;
+};
 
+/ {
     keymap {
         compatible = "zmk,keymap";
 
@@ -35,8 +34,6 @@
             &kp CAPS  &none     &kp A     &kp S     &kp D     &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT   &kp RET   &kp PG_UP &none     // Row 3
             &kp LSHFT &none     &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &none     &kp RSHFT &kp PG_DN &kp UP    // Row 4
             &kp LCTRL &mo 1     &kp LGUI  &kp LALT  &mo 2     &none     &kp SPACE &none     &none     &none     &kp RALT  &kp K_APP &kp RCTRL &kp LEFT  &kp RIGHT &kp DOWN  // Row 5
-            //                                      ^^^^^
-            //                            Replaced &none with &mo 2
             >;
         };
 
