@@ -19,11 +19,21 @@
     behaviors {
         mlt: mouse_layer_tap {
             compatible = "zmk,behavior-hold-tap";
+            label = "MOUSE_LAYER_TAP";
             #binding-cells = <2>;
+            
+            // 1. Prioritize typing. If you release before 250ms, it is ALWAYS a 'W'.
             flavor = "tap-preferred";
-            tapping-term-ms = <250>;       
+            tapping-term-ms = <250>; 
+            
+            // 2. Explicitly disable quick-tap repeat. 
+            // This prevents the "www" spam if you tap 'w' and then hold it.
+            quick-tap-ms = <0>;      
+
+            // 3. Modifiers are safe. It will only become the mouse layer if 
+            // no other keys were recently pressed.
             require-prior-idle-ms = <150>; 
-            // quick-tap-ms is intentionally omitted here to prevent the "www" repeating glitch
+            
             bindings = <&mo>, <&kp>;
         };
     };
