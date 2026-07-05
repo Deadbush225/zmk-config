@@ -21,10 +21,12 @@
             compatible = "zmk,behavior-hold-tap";
             label = "SPACE_LAYER_TAP";
             #binding-cells = <2>;
-            flavor = "tap-preferred";      // Prioritizes typing a space if released quickly
-            tapping-term-ms = <200>;       // Hold for 200ms to activate mouse layer
-            quick-tap-ms = <150>;          // Allows you to double-tap space quickly for punctuation
-            require-prior-idle-ms = <125>; // Prevents layer activation if you are actively typing fast
+            
+            // Changed to balanced, and removed require-prior-idle. 
+            // This stops it from breaking shortcuts like Ctrl+W!
+            flavor = "balanced";       
+            tapping-term-ms = <200>;       
+            quick-tap-ms = <150>;          
             bindings = <&mo>, <&kp>;
         };
     };
@@ -35,16 +37,12 @@
         // LAYER 0: Base Layout
         default_layer {
             bindings = <
-            // Col 1     Col 2     Col 3      Col 4     Col 5     Col 6     Col 7     Col 8     Col 9     Col 10    Col 11    Col 12    Col 13    Col 14    Col 15    Col 16
-            &gresc    &kp N1    &kp N2     &kp N3    &kp N4    &kp N5    &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS &kp EQUAL &kp BSPC  &kp INS   &none     // Row 1
-            &kp TAB   &kp Q     &kp W      &kp E     &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P     &kp LBKT  &kp RBKT  &kp BSLH  &kp DEL   &none     // Row 2
-            &kp CAPS  &none     &kp A      &kp S     &kp D     &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT   &kp RET   &kp PG_UP &none     // Row 3
-            // ^^^^^
-            // Restored to standard Caps Lock
-            &kp LSHFT &none     &kp Z      &kp X     &kp C     &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &none     &kp RSHFT &kp PG_DN &kp UP    // Row 4
-            &kp LCTRL &mo 2     &kp LGUI   &kp LALT  &none     &none     &slt 1 SPACE &none  &none     &none     &kp RALT  &kp K_APP &kp RCTRL &kp LEFT  &kp RIGHT &kp DOWN  // Row 5
-            //                                                   ^^^^^^^^^^^^
-            //                                                   Spacebar now triggers Mouse Layer 1
+            // Col 1     Col 2     Col 3      Col 4     Col 5     Col 6     Col 7        Col 8     Col 9     Col 10    Col 11    Col 12    Col 13    Col 14    Col 15    Col 16
+            &gresc    &kp N1    &kp N2     &kp N3    &kp N4    &kp N5    &kp N6       &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS &kp EQUAL &kp BSPC  &kp INS   &none     // Row 1
+            &kp TAB   &kp Q     &kp W      &kp E     &kp R     &kp T     &kp Y        &kp U     &kp I     &kp O     &kp P     &kp LBKT  &kp RBKT  &kp BSLH  &kp DEL   &none     // Row 2
+            &kp CAPS  &none     &kp A      &kp S     &kp D     &kp F     &kp G        &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT   &kp RET   &kp PG_UP &none     // Row 3
+            &kp LSHFT &none     &kp Z      &kp X     &kp C     &kp V     &kp B        &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &none     &kp RSHFT &kp PG_DN &kp UP    // Row 4
+            &kp LCTRL &mo 2     &kp LGUI   &kp LALT  &none     &none     &slt 1 SPACE &none     &none     &none     &kp RALT  &kp K_APP &kp RCTRL &kp LEFT  &kp RIGHT &kp DOWN  // Row 5
             >;
         };
 
@@ -55,10 +53,12 @@
             &none   &none   &none    &none        &none        &none       &none   &none           &none           &none            &none             &none             &none    &none    &none    &none   // Row 1
             &none   &none   &none    &mkp LCLK    &mkp RCLK    &none       &none   &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &none             &none             &none    &none    &none    &none   // Row 2
             &none   &none   &none    &none        &mkp MCLK    &none       &none   &msc SCRL_LEFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT   &msc SCRL_RIGHT   &none    &none    &none    &none   // Row 3
-            &none   &none   &none    &none        &none        &none       &none   &none           &none           &none            &none             &none             &none    &none    &none    &none   // Row 4
-            &none   &none   &none    &none        &none        &none       &trans  &none           &none           &none            &none             &none             &none    &none    &none    &none   // Row 5
-            //                                                             ^^^^^^
-            //                                                             Must be &trans so it keeps holding the layer
+            
+            // LSHFT and RSHFT set to &trans so you can Shift+Scroll
+            &trans  &none   &none    &none        &none        &none       &none   &none           &none           &none            &none             &none             &none    &trans   &none    &none   // Row 4
+            
+            // All Modifiers (CTRL, GUI/Win, ALT) set to &trans so you can Ctrl+Click and Alt+Click
+            &trans  &trans  &trans   &trans       &none        &none       &trans  &none           &none           &none            &trans            &none             &trans   &none    &none    &none   // Row 5
             >;
         };
 
